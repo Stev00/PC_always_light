@@ -1,0 +1,25 @@
+
+
+
+import pyautogui,time
+
+def main():
+    print("Start:",time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+    n=1
+    pyautogui.FAILSAFE = False
+    while True:
+        x1,y1 = pyautogui.position()
+        time.sleep(30)
+        x2,y2 = pyautogui.position()
+        if x1-x2 == 0 and y1-y2 == 0:
+            pyautogui.press('up')
+            if n%20==0:
+                print(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+            n+=1
+        else:
+            if n%20==0:
+                print('.')
+            n+=1
+
+if __name__ == '__main__':
+    main()
